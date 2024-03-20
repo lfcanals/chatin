@@ -2,4 +2,4 @@
 miniCV.txt
 position.txt
 chromedata/
-*/__pycache__/
+__pycache__/

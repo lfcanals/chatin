@@ -1,15 +1,16 @@
-import ChatGTPClient from ../client/client_chatgtp.py
+from client.client_chatgpt import ChatGPTClient 
+import sys
 
 chatGtpClient = ChatGPTClient('http://localhost:5000')
 
-position = read('position.txt')
-shortCv = read('miniCV.txt')
-myName = 'Luis Canals'
+position = open('position.txt', 'r').read()
+shortCV = open('miniCV.txt','r').read()
 
-company = sys.argv[1]
-jobTitle = sys.argv[2]
+myName = sys.argv[1]
+company = sys.argv[2]
+jobTitle = sys.argv[3]
 
-preRequestToChatGPT = \
+request = \
     'Write a cover letter for the job title "[JobTitle]" ' \
     + 'for the company "[Company]" no more than 150 words, ' \
     + 'for this position:\n\n' \
@@ -18,9 +19,9 @@ preRequestToChatGPT = \
     + '[CV]\n'
 
 
-request.replace('[JobTitle]', jobTitle)
-request.replace('[Company]', company)
-request.replace('[CV]', shortCV)
-request.replace('[Position]', position)
+request = request.replace('[JobTitle]', jobTitle)
+request = request.replace('[Company]', company)
+request = request.replace('[CV]', shortCV)
+request = request.replace('[Position]', position)
 
-print(request)
+print(chatGtpClient.query(request))
