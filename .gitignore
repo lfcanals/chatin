@@ -1,0 +1,5 @@
+.*.sw?
+miniCV.txt
+position.txt
+chromedata/
+*/__pycache__/
