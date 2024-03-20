@@ -35,6 +35,10 @@ There are some examples under src/samples in Python.
 
 # The examples
 
+To run the examples, set the PYTHONPATH to `src`, to let the samples search for client libraries.
+
+    export PYTHONPATH=src
+
 ## Create Cover letter for a job position
 
 The script `cover-letter.py` is a client to CHATin that creates a cover letter for a position.
@@ -43,4 +47,8 @@ It needs two files:
     1. `position.txt` : a text with the description of the position. Ideally without double line spaces
     2. `miniCV.txt`: a short list of your positions. Ideally without double line spaces
 
+It needs three parameters: my name, company name, position name
+For example:
+
+    python src/samples/cover-letter.py "Gill Bates" "Minisoft" "CEO"
 
